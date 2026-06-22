@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-xs" viewBox="0 0 512 512">
+  <path fill="#1EB53A" d="M0 0h512v170.7H0z"/>
+  <path fill="#FFF" d="M0 170.7h512v170.6H0z"/>
+  <path fill="#D52027" d="M0 341.3h512V512H0z"/>
+  <path fill="#000" d="m256 213.3 22.1 68.1h71.7l-58 42.1 22.1 68.2L256 349.6l-58 42.1 22.1-68.2-58-42.1h71.7L256 213.3z"/>
+</svg>
