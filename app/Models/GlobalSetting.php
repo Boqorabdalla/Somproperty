@@ -62,7 +62,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $dashboard_clock
  * @property int $taskboard_length
  * @property string|null $favicon
- * @property-read \App\Models\Currency|null $currency
+ * @property-read Currency|null $currency
  * @property-read mixed $dark_logo_url
  * @property-read mixed $favicon_url
  * @property-read mixed $icon
@@ -72,6 +72,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property-read mixed $logo_url
  * @property-read mixed $moment_date_format
  * @property-read mixed $show_public_message
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Setting newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Setting newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Setting query()
@@ -123,26 +124,31 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereWeatherKey($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereWebsite($value)
+ *
  * @property int $ticket_form_google_captcha
  * @property int $lead_form_google_captcha
  * @property string|null $last_cron_run
  * @property string $auth_theme
  * @property string|null $light_logo
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereAuthTheme($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereLastCronRun($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereLeadFormGoogleCaptcha($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereLightLogo($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereTicketFormGoogleCaptcha($value)
+ *
  * @property string $sidebar_logo_style
  * @property string $session_driver
  * @property int $allow_client_signup
  * @property int $admin_client_signup_approval
  * @property string|null $allowed_file_types
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereAdminClientSignupApproval($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereAllowClientSignup($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereAllowedFileTypes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereSessionDriver($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereSidebarLogoStyle($value)
+ *
  * @property string $google_calendar_status
  * @property string|null $google_client_id
  * @property string|null $google_client_secret
@@ -150,6 +156,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string|null $google_id
  * @property string|null $name
  * @property string|null $token
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereGoogleCalendarStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereGoogleCalendarVerificationStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereGoogleClientId($value)
@@ -157,7 +164,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereGoogleId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereToken($value)
+ *
  * @property int $allowed_file_size
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereAllowedFileSize($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GlobalSetting whereCurrencyKeyVersion($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GlobalSetting whereGlobalAppName($value)
@@ -165,33 +174,42 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|GlobalSetting whereMomentDateFormat($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GlobalSetting whereRtl($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GlobalSetting whereShowUpdatePopup($value)
+ *
  * @property string $header_color
  * @property string|null $hash
  * @property string|null $last_license_verified_at
  * @property int $datatable_row_limit
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|GlobalSetting whereDatatableRowLimit($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GlobalSetting whereHash($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GlobalSetting whereHeaderColor($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GlobalSetting whereLastLicenseVerifiedAt($value)
+ *
  * @property string $auth_theme_text
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|GlobalSetting whereAuthThemeText($value)
+ *
  * @property string $sign_up_terms
  * @property string|null $terms_link
  * @property int $allow_max_no_of_files
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|GlobalSetting whereAllowMaxNoOfFiles($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GlobalSetting whereSignUpTerms($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GlobalSetting whereTermsLink($value)
+ *
  * @property string|null $purchased_on
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|GlobalSetting whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GlobalSetting wherePurchasedOn($value)
+ *
  * @mixin \Eloquent
  */
 class GlobalSetting extends BaseModel
 {
-
     use HasMaskImage;
 
     const CHECKLIST_TOTAL = 6;
+
     const SIGNED_ROUTE_EXPIRY = 7; // Days
 
     const APP_LOGO_PATH = 'app-logo';
@@ -203,8 +221,6 @@ class GlobalSetting extends BaseModel
         'last_license_verified_at' => 'datetime',
         'last_cron_run' => 'datetime',
     ];
-
-
 
     const COMPANY_TABLES = [
         'accept_estimates',
@@ -330,7 +346,7 @@ class GlobalSetting extends BaseModel
         'users_chat',
         'users_chat_files',
         'file_storage',
-        'task_label_list'
+        'task_label_list',
     ];
 
     const CURRENCY_TABLES = [
@@ -357,7 +373,7 @@ class GlobalSetting extends BaseModel
         'login_background_url',
         'show_public_message',
         'moment_date_format',
-        'favicon_url'
+        'favicon_url',
     ];
 
     const DATE_FORMATS = [
@@ -403,7 +419,7 @@ class GlobalSetting extends BaseModel
             return asset('img/worksuite-logo.png');
         }
 
-        return asset_url_local_s3('app-logo/' . $this->light_logo);
+        return asset_url_local_s3('app-logo/'.$this->light_logo);
     }
 
     public function defaultLogo()
@@ -412,7 +428,7 @@ class GlobalSetting extends BaseModel
             return asset('img/worksuite-logo.png');
         }
 
-        return asset_url_local_s3('app-logo/' . $this->logo);
+        return asset_url_local_s3('app-logo/'.$this->logo);
     }
 
     public function getLightLogoUrlAttribute()
@@ -421,7 +437,7 @@ class GlobalSetting extends BaseModel
             return asset('img/worksuite-logo.png');
         }
 
-        return asset_url_local_s3('app-logo/' . $this->light_logo);
+        return asset_url_local_s3('app-logo/'.$this->light_logo);
     }
 
     public function getDarkLogoUrlAttribute()
@@ -430,7 +446,7 @@ class GlobalSetting extends BaseModel
             return asset('img/worksuite-logo.png');
         }
 
-        return asset_url_local_s3('app-logo/' . $this->logo);
+        return asset_url_local_s3('app-logo/'.$this->logo);
     }
 
     public function getLoginBackgroundUrlAttribute()
@@ -440,7 +456,7 @@ class GlobalSetting extends BaseModel
             return null;
         }
 
-        return asset_url_local_s3('login-background/' . $this->login_background);
+        return asset_url_local_s3('login-background/'.$this->login_background);
     }
 
     public function maskedDefaultLogo(): Attribute
@@ -451,7 +467,7 @@ class GlobalSetting extends BaseModel
                     return asset('img/worksuite-logo.png');
                 }
 
-                return $this->generateMaskedImageAppUrl('app-logo/' . $this->logo);
+                return $this->generateMaskedImageAppUrl('app-logo/'.$this->logo);
             },
         );
     }
@@ -474,7 +490,7 @@ class GlobalSetting extends BaseModel
                     return asset('img/worksuite-logo.png');
                 }
 
-                return $this->generateMaskedImageAppUrl('app-logo/' . $this->light_logo);
+                return $this->generateMaskedImageAppUrl('app-logo/'.$this->light_logo);
             },
         );
     }
@@ -487,7 +503,7 @@ class GlobalSetting extends BaseModel
                     return asset('img/worksuite-logo.png');
                 }
 
-                return $this->generateMaskedImageAppUrl('app-logo/' . $this->light_logo);
+                return $this->generateMaskedImageAppUrl('app-logo/'.$this->light_logo);
             },
         );
     }
@@ -500,7 +516,7 @@ class GlobalSetting extends BaseModel
                     return asset('img/worksuite-logo.png');
                 }
 
-                return $this->generateMaskedImageAppUrl('app-logo/' . $this->logo);
+                return $this->generateMaskedImageAppUrl('app-logo/'.$this->logo);
             },
         );
     }
@@ -513,7 +529,7 @@ class GlobalSetting extends BaseModel
                     return null;
                 }
 
-                return $this->generateMaskedImageAppUrl('login-background/' . $this->login_background);
+                return $this->generateMaskedImageAppUrl('login-background/'.$this->login_background);
             },
         );
     }
@@ -526,14 +542,14 @@ class GlobalSetting extends BaseModel
                     return asset('favicon.png');
                 }
 
-                return $this->generateMaskedImageAppUrl('favicon/' . $this->favicon);
+                return $this->generateMaskedImageAppUrl('favicon/'.$this->favicon);
             },
         );
     }
 
     public function getShowPublicMessageAttribute()
     {
-        if (str_contains(request()->url(), request()->getHost() . '/public')) {
+        if (str_contains(request()->url(), request()->getHost().'/public')) {
             return true;
         }
 
@@ -552,26 +568,26 @@ class GlobalSetting extends BaseModel
             return asset('favicon.png');
         }
 
-        return asset_url_local_s3('favicon/' . $this->favicon);
+        return asset_url_local_s3('favicon/'.$this->favicon);
     }
 
     public static function checkListCompleted()
     {
         $checkListCompleted = 2; // Installation and Admin Account setup
 
-        if (smtp_setting()->mail_from_email != 'from@email.com') {
+        if (smtp_setting() && smtp_setting()->mail_from_email != 'from@email.com') {
             $checkListCompleted++;
         }
 
-        if (!is_null(global_setting()->last_cron_run)) {
+        if (! is_null(global_setting()->last_cron_run)) {
             $checkListCompleted++;
         }
 
-        if (!is_null(global_setting()->logo)) {
+        if (! is_null(global_setting()->logo)) {
             $checkListCompleted++;
         }
 
-        if (!is_null(global_setting()->favicon)) {
+        if (! is_null(global_setting()->favicon)) {
             $checkListCompleted++;
         }
 
@@ -606,7 +622,7 @@ class GlobalSetting extends BaseModel
     {
         $secretKey = global_setting()->google_recaptcha_v2_status == 'active' ? global_setting()->google_recaptcha_v2_secret_key : global_setting()->google_recaptcha_v3_secret_key;
 
-        $client = new Client();
+        $client = new Client;
         $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
             'form_params' => [
                 'secret' => $secretKey,
